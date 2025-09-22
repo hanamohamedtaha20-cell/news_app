@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app3/styles.dart';
-import 'package:news_app3/widgets/category_widget/category_listview.dart';
-import '../widgets/article_widget/artyicle_item.dart';
+import 'package:news_app3/widgets/article_widget/article_listview.dart';
+import 'package:news_app3/widgets/category_listview.dart';
 
 
 class Homescreen extends StatelessWidget {
@@ -14,26 +14,19 @@ class Homescreen extends StatelessWidget {
         backgroundColor: Colors.teal,
         title: Text("News App",style: Appstyles.textStyle30,),
       ),
-      body:SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 10),
-            CategoryListview(),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text("General News",style:  Appstyles.textStyle30.copyWith(color: Colors.black),),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context,index){
-                return ArticleItem();
-              },itemCount: 5,
-            )
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: categoryListView()),
+          SliverToBoxAdapter(child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0,vertical: 15),
+            child: Text("General News",style:Appstyles.textStyle30.copyWith(
+                color: Colors.black
+            ) ,),
+          ),),
+          ArticleListview(),
           ],
         ),
-      ) ,
-    );
+      ) ;
+
   }
 }
