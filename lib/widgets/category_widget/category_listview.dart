@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../modal/category.dart';
-import 'news_category.dart';
+import 'ctegory_item.dart';
 
 class CategoryListview extends StatelessWidget {
   const CategoryListview({super.key});
@@ -13,7 +12,7 @@ class CategoryListview extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context , index){
-          return NewsCategory(x: newscategory[index] );
+          return CategoryItem(x: newscategory[index] );
         },itemCount:newscategory.length,),
     );
   }

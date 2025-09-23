@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app3/styles.dart';
 import 'package:news_app3/widgets/article_widget/article_listview.dart';
-import 'package:news_app3/widgets/category_listview.dart';
+import '../widgets/category_widget/category_listview.dart';
 
 
 class Homescreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class Homescreen extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: categoryListView()),
+          SliverToBoxAdapter(child: CategoryListview()),
           SliverToBoxAdapter(child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0,vertical: 15),
             child: Text("General News",style:Appstyles.textStyle30.copyWith(

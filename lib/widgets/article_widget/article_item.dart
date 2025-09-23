@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app3/modal/article.dart';
-
-import '../../styles.dart';
 import '../expandable_text.dart';
 class ArticleItem extends StatelessWidget {
   const ArticleItem({super.key,required this.article});
